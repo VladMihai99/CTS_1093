@@ -10,3 +10,6 @@ Stage 1. Naming conventions
 - format your code
 
 - remove the hardcoded values aka "magic numbers"
+
+- validate your input values
+- replace the if-then-else checks for the productType enum with switch
