@@ -18,3 +18,8 @@ Stage 2. KISS, Sinle Responsability -> reduce functions complexity
 - remove the switch by using generic approach for each product type
 - out-source the validations
 - out-source the way the fidelity discount is computed
+
+Stage 3. Dependency Inversion Principle (DIP)
+- remove the dependency regarding the validation of input values
+- remove the dependency on the static values - they are given by the Marketin team
+- remove the dependency on the way the fidelity is computed - Marketing will decide 
