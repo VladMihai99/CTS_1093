@@ -13,3 +13,8 @@ Stage 1. Naming conventions
 
 - validate your input values
 - replace the if-then-else checks for the productType enum with switch
+
+Stage 2. KISS, Sinle Responsability -> reduce functions complexity
+- remove the switch by using generic approach for each product type
+- out-source the validations
+- out-source the way the fidelity discount is computed
