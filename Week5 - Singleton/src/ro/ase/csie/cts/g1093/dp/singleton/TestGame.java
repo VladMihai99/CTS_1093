@@ -14,6 +14,10 @@ public class TestGame {
 		UIModule uiModule = new UIModule();
 		PlayerModule playerModule = new PlayerModule();
 		
+//		RESTBackend backend2 = 
+//				RESTBackend.getRESTBackend("www.ase.acs.ro/game","test");
+//		RESTBackend backend3 = 
+//				RESTBackend.getRESTBackend("www.ase.acs.ro/payments","VISA Check");
 
 	}
 
