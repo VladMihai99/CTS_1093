@@ -1,0 +1,14 @@
+-change the package name to ro.ase.csie.cts.g1093.assignment
+-add a new package to handle the exceptions called ro.ase.csie.cts.g1093.exceptions
+-added an enum called AccountType with the declared types
+-rename the name of the variables according to upperCamelCase Principle (ex loan_value to loanValue)
+-rename the name of the functions according to upperCamelCase
+-deleted comments
+-rearranged the code ( source - > format )
+-generated to String method ( source -> generate toString() )
+-deleted some unused variables such as temp and vb
+-remove unnecessary print method (YAGNI principle)
+-generated the constructor in the beginning of the code using fields and added exception for negative values
+-remove hard-coded values such as .0125f and 365 by declaring static final variables
+-re-organized the calculate function (KISS principle) by renaming it and creating interestFee and finalLoan functions to make the totalFee calculus more visible and intuitive
+-in order to have access to the monthlyRateComputation() I have added a new interface and override the method in Account Class 
