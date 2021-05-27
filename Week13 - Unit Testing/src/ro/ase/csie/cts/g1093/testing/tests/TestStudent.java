@@ -13,6 +13,7 @@ import org.junit.Test;
 
 import ro.ase.csie.cts.g1093.testing.models.Student;
 import ro.ase.csie.cts.g1093.testing.models.exceptions.WrongAgeException;
+import ro.ase.csie.cts.g1093.testing.models.exceptions.WrongGradeException;
 import ro.ase.csie.cts.g1093.testing.models.exceptions.WrongNameException;
 
 public class TestStudent {
@@ -83,6 +84,60 @@ public class TestStudent {
 	public void testSetNameErrorConditionSmallName() throws WrongNameException {
 		String newName = "Io";
 		student.setName(newName);
+	}
+	
+	@Test
+	public void testGetGradesAverageOrder() throws WrongGradeException {
+		ArrayList<Integer> grades = new ArrayList<>();
+		for(int i = 6 ; i < 10; i++) {
+			grades.add(i);
+		}
+		
+//		grades.add(6);
+//		grades.add(6);
+//		grades.add(7);
+		
+		student.setGrades(grades);
+		
+		float expectedAverage = 7.5f;
+		float computedAverage = student.getGradesAverage();
+		
+		assertEquals("Testing with sorted array of grades", expectedAverage, computedAverage, 0);
+	}
+	
+	@Test
+	public void testGetGradesAverageCardinalityZero() throws WrongGradeException {
+		ArrayList<Integer> grades = new ArrayList<>();
+		student.setGrades(grades);
+		
+		float expectedAverage = 0;
+		float computedAverage = student.getGradesAverage();
+		
+		assertEquals("Testing an empty array of grades", expectedAverage, computedAverage, 0);
+		
+	}
+	
+	@Test
+	public void testGetGradesAverageCardinalityOne() throws WrongGradeException {
+		ArrayList<Integer> grades = new ArrayList<>();
+		grades.add(Student.MAX_GRADE);
+		student.setGrades(grades);
+		
+		float expectedAverage = Student.MAX_GRADE;
+		float computedAverage = student.getGradesAverage();
+		
+		assertEquals("Testing an empty array of grades", expectedAverage, computedAverage, 0);
+		
+	}
+	
+	@Test 
+	public void testGetGradesAverageExistenceNullRefferencForGrades() throws WrongGradeException {
+		student.setGrades(null);
+		
+		float expectedAverage = 0;
+		float computedAverage = student.getGradesAverage();
+		
+		assertEquals("Testing with null for grades", expectedAverage, computedAverage, 0);
 	}
 
 }
