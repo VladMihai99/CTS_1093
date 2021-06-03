@@ -140,5 +140,12 @@ public class TestStudent {
 		
 		assertEquals("Testing with null for grades", expectedAverage, computedAverage, 0);
 	}
+	
+	@Test 
+	public void testSetAgeInverse() throws WrongAgeException {
+		int newAge = initialAge + 1;
+		student.setAge(newAge);
+		assertNotEquals("setAge is not changing the age value", initialAge, student.getAge());
+	}
 
 }

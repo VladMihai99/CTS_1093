@@ -25,6 +25,8 @@ public class TestStudentNewTests {
 	static int initialAge;
 	static int initialNoGrades;
 	
+	static ArrayList<Integer> perfomanceGrades;
+	
 	
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
@@ -38,6 +40,12 @@ public class TestStudentNewTests {
 		
 		for (int i = 0 ; i < initialNoGrades; i++) {
 			grades.add(random.nextInt(Student.MAX_GRADE) + 1);
+		}
+		
+		perfomanceGrades = new ArrayList<>();
+		int noGrades = (int) 1e6;
+		for(int i = 0; i < noGrades; i++) {
+			grades.add(random.nextInt(Student.MAX_GRADE)+1);
 		}
 		
 	}
@@ -100,12 +108,37 @@ public class TestStudentNewTests {
 		}
 		
 		assertArrayEquals("We do shallow-copy", grades, studentGrades);
-		
-		
-		
-		
 	}
-
 	
+	@Test
+	public void testGetGradesAveragePerformance() throws WrongGradeException {
+		ArrayList<Integer> grades = new ArrayList<>();
+		int noGrades = (int) 1e6;
+		Random random = new Random();
+		for(int i = 0; i < noGrades; i++) {
+			grades.add(random.nextInt(Student.MAX_GRADE)+1);
+		}
+		
+		student.setGrades(grades);
+		
+		long tStart = System.currentTimeMillis();
+		student.getGradesAverage();
+		long tFinal = System.currentTimeMillis();
+		
+		long delta = tFinal - tStart;
+		long perfomanceLimit = 20;
+		if(delta <= perfomanceLimit) {
+			assertTrue(true);
+		} 
+		else {
+			fail("Takes too long");
+		}
+	}
+	
+	@Test(timeout = 18)
+	public void testGetGradesAveragePerformance2() throws WrongGradeException {
+		student.setGrades(perfomanceGrades);
+		student.getGradesAverage();
+	}
 
 }
