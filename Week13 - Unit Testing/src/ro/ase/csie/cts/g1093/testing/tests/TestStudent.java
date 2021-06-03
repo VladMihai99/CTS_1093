@@ -18,6 +18,7 @@ import ro.ase.csie.cts.g1093.testing.models.exceptions.WrongNameException;
 
 public class TestStudent {
 
+	//test fixture 
 	static Student student;
 	static ArrayList<Integer> grades;
 	static String initialName = "John";
